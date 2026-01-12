@@ -1218,8 +1218,8 @@ vk_init(Vulkan *vk) {
     //
     int width, height, channels;
     u8* texels = stbi_load("../data/texture.jpg", &width, &height, &channels, 4);
-    VkDeviceSize image_size = width * height * 4;
     ASSERT(texels);
+    VkDeviceSize image_size = width * height * 4;
 
     VkBuffer staging_buffer{};
     VkDeviceMemory staging_buffer_memory{};

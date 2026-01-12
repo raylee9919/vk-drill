@@ -155,18 +155,23 @@ WinMain(HINSTANCE hinst, HINSTANCE deprecated, LPSTR cmd, int show_cmd) {
     os.alloc = win32_alloc;
     os.free  = win32_free;
 
-    Image images[3];
+    Image images[3] = {};
     images[0].id = 2;
     images[0].data = stbi_load("texture.jpg", (int *)&images[0].width, (int *)&images[0].height, 0, 4);
+    ASSERT(images[0].data);
     images[1].id = 3;
     images[1].data = stbi_load("doggo.png", (int *)&images[1].width, (int *)&images[1].height, 0, 4);
+    ASSERT(images[1].data);
     images[2].id = 4;
     images[2].data = stbi_load("doggo2.png", (int *)&images[2].width, (int *)&images[2].height, 0, 4);
+    ASSERT(images[2].data);
 
 
-    while (g_running) {
+    while (g_running) 
+    {
         MSG msg;
-        while (PeekMessageA(&msg, hwnd, 0, 0, PM_REMOVE)) {
+        while (PeekMessageA(&msg, hwnd, 0, 0, PM_REMOVE)) 
+        {
             switch(msg.message) {
                 case WM_QUIT: {
                     g_running = false;

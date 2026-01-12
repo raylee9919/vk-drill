@@ -184,7 +184,8 @@ RENDERER_END_FRAME(win32_end_frame) {
     renderer.drawcall_vertex_count.clear();
 }
 
-WIN32_LOAD_RENDERER(win32_load_renderer) {
+WIN32_LOAD_RENDERER(win32_load_renderer) 
+{
     os.alloc = win32_alloc;
     os.free  = win32_free;
 
